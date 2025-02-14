@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Grid</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .iframe-container { 
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+        iframe {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            background-image: url('background.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">10x10 Iframe Grid</h1>
+    <div class="iframe-container">
+        <iframe src="https://www.example.com"></iframe>
+        <iframe src="https://www.example.com"></iframe>
+        <iframe src="https://www.example.com"></iframe>
+        <iframe src="https://www.example.com"></iframe>
+        <iframe src="https://www.example.com"></iframe>
+        <iframe src="https://www.example.com"></iframe>
+        <iframe src="https://www.example.com"></iframe>
+        <iframe src="https://www.example.com"></iframe>
+        <iframe src="https://www.example.com"></iframe>
+        <iframe src="https://www.example.com"></iframe>
+    </div>
+</body>
+</html>

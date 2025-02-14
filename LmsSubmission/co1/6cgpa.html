@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Placement Status</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .not-allowed { background-color: red; color: white; padding: 10px; }
+        .maybe-placed { background-color: orange; padding: 10px; }
+    </style>
+    <script>
+        function checkPlacement() {
+            let students = [
+                { name: "Student 1", cgpa: 7.3 },
+                { name: "Student 2", cgpa: 7.8 },
+                { name: "Student 3", cgpa: 8.2 },
+                { name: "Student 4", cgpa: 7.4 },
+                { name: "Student 5", cgpa: 7.6 },
+                { name: "Student 6", cgpa: 8.4 },
+                { name: "Student 7", cgpa: 7.2 },
+                { name: "Student 8", cgpa: 7.9 },
+                { name: "Student 9", cgpa: 7.5 },
+                { name: "Student 10", cgpa: 8.1 }
+            ];
+            
+            let container = document.getElementById("placementResults");
+            container.innerHTML = "";
+            
+            students.forEach(student => {
+                let div = document.createElement("div");
+                div.innerHTML = `<strong>${student.name}</strong> - CGPA: ${student.cgpa}`;
+                
+                if (student.cgpa >= 7.2 && student.cgpa <= 7.5) {
+                    div.className = "not-allowed";
+                    div.innerHTML += " - Not Allowed for Placement Drive";
+                } else if (student.cgpa > 7.5 && student.cgpa <= 8.5) {
+                    div.className = "maybe-placed";
+                    div.innerHTML += " - Maybe Placed";
+                }
+                
+                container.appendChild(div);
+            });
+        }
+    </script>
+</head>
+<body onload="checkPlacement()">
+    <h1>Student Placement Status</h1>
+    <div id="placementResults"></div>
+</body>
+</html>

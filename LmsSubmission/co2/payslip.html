@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Payslip Form</title>
+    <script>
+        function calculateSalary() {
+            let basic = 37900;
+            let totalDays = 30;
+            let presentDays = document.getElementById("presentDays").value;
+            let hraType = document.getElementById("hraType").value;
+            
+            if (presentDays === "" || presentDays < 0 || presentDays > totalDays) {
+                alert("Please enter a valid number of working days (0-30)");
+                return;
+            }
+            
+            let salary = (basic / totalDays) * presentDays;
+            let dns = 0.09 * basic;
+            
+            let hra = 0;
+            if (hraType === "hostel") {
+                hra = 0.3 * basic;
+            } else if (hraType === "room") {
+                hra = 0.2 * basic;
+            }
+            
+            let netSalary = salary - dns + hra;
+            document.getElementById("result").innerHTML = `Net Salary: ₹${netSalary.toFixed(2)}`;
+        }
+    </script>
+</head>
+<body>
+    <h2>Employee Payslip Form</h2>
+    <form>
+        <label for="presentDays">Enter Days Present (0-30):</label>
+        <input type="number" id="presentDays" min="0" max="30" required>
+        <br><br>
+        <label for="hraType">Select HRA Type:</label>
+        <select id="hraType">
+            <option value="home">Home (0%)</option>
+            <option value="room">Room (20%)</option>
+            <option value="hostel">Hostel (30%)</option>
+        </select>
+        <br><br>
+        <button type="button" onclick="calculateSalary()">Calculate Salary</button>
+    </form>
+    <h3 id="result"></h3>
+</body>
+</html>

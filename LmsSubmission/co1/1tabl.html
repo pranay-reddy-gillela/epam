@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tables</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: center; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h2>Basic Table</h2>
+    <table>
+        <tr><th>Name</th><th>Age</th></tr>
+        <tr><td>Alice</td><td>25</td></tr>
+        <tr><td>Bob</td><td>30</td></tr>
+    </table>
+
+    <h2>Table with Rowspan</h2>
+    <table>
+        <tr><th rowspan="2">Item</th><th>Price</th></tr>
+        <tr><td>$10</td></tr>
+    </table>
+
+    <h2>Table with Colspan</h2>
+    <table>
+        <tr><th colspan="2">Contact Info</th></tr>
+        <tr><td>Email</td><td>example@email.com</td></tr>
+    </table>
+
+    <h2>Striped Table</h2>
+    <table>
+        <tr><th>ID</th><th>Product</th></tr>
+        <tr style="background-color: #f9f9f9;"><td>1</td><td>Phone</td></tr>
+        <tr><td>2</td><td>Laptop</td></tr>
+    </table>
+
+    <h2>Table with Caption</h2>
+    <table>
+        <caption>Student Grades</caption>
+        <tr><th>Name</th><th>Grade</th></tr>
+        <tr><td>John</td><td>A</td></tr>
+        <tr><td>Emma</td><td>B</td></tr>
+    </table>
+</body>
+</html>

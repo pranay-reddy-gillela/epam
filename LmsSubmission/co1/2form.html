@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration Form</title>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            
+            let dob = document.getElementById("dob").value;
+            let role = document.querySelector('input[name="role"]:checked');
+            
+            if (!role) {
+                alert("Please select a role.");
+                return;
+            }
+            
+            let dobDate = new Date(dob);
+            let today = new Date();
+            let age = today.getFullYear() - dobDate.getFullYear();
+            
+            if (role.value === "student" && age < 18) {
+                alert("Students must be at least 18 years old.");
+                return;
+            }
+            
+            if (role.value === "employee" && age < 21) {
+                alert("Employees must be at least 21 years old.");
+                return;
+            }
+            
+            alert("Form submitted successfully!");
+            document.getElementById("registrationForm").submit();
+        }
+    </script>
+</head>
+<body>
+    <h2>Login</h2>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+    
+    <h2>Registration</h2>
+    <form id="registrationForm" onsubmit="validateForm(event)">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br>
+        <label>Role:</label>
+        <input type="radio" id="student" name="role" value="student"> Student
+        <input type="radio" id="employee" name="role" value="employee"> Employee<br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
